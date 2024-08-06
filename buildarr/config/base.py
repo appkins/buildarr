@@ -205,12 +205,12 @@ class ConfigBase(BaseModel, Generic[Secrets]):
                                 if "field_default" in attr_metadata:
                                     local_attrs[attr_name] = attr_metadata["field_default"]
                                     field_default_set = True
-                                else:
-                                    raise ValueError(
-                                        "'value' attribute not included "
-                                        f"for remote field '{remote_attr_name}' "
-                                        "and 'field_default' not defined in local attribute",
-                                    ) from None
+                                # else:
+                                    # raise ValueError(
+                                    #     "'value' attribute not included "
+                                    #     f"for remote field '{remote_attr_name}' "
+                                    #     "and 'field_default' not defined in local attribute",
+                                    # ) from None
                             break
                     else:
                         if attr_metadata.get("optional", False):
