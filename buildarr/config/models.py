@@ -20,7 +20,7 @@ from __future__ import annotations
 
 from typing import Any, Dict, Optional, Type, cast, get_args as get_type_args
 
-from pydantic import field_validator, model_validator
+from pydantic import validator, model_validator
 from typing_extensions import Self
 
 from ..plugins import Secrets
@@ -127,7 +127,7 @@ class ConfigPlugin(ConfigBase[Secrets]):
 
     # `instances` is not defined here, but it MUST be defined on the implementing class.
 
-    @field_validator("url_base")
+    @validator("url_base")
     @classmethod
     def validate_url_base(cls, value: Optional[str]) -> Optional[str]:
         """
